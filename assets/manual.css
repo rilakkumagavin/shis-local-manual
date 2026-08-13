@@ -40,6 +40,8 @@ a { color: inherit; }
 .manual-nav nav a { padding: 10px 12px; text-decoration: none; border-left: 3px solid transparent; }
 .manual-nav nav a:hover, .manual-nav nav a:focus-visible, .manual-nav nav a.active { color: white; background: #2c4741; border-left-color: #55c6b7; outline: none; }
 .offline-badge { margin: 22px 8px 0; padding-top: 14px; color: #a9c2bd; border-top: 1px solid #47605b; font-size: 13px; }
+.install-guide-link { display: block; margin: 18px 8px 0; padding: 11px 12px; color: #102f2b; background: #d9efea; border: 1px solid #8bc1b6; font-weight: 800; text-align: center; text-decoration: none; }
+.install-guide-link:hover, .install-guide-link:focus-visible { background: white; outline: 3px solid #76b6aa; outline-offset: 2px; }
 
 main { min-width: 0; padding: 32px clamp(18px, 4vw, 58px) 80px; }
 .manual-section { max-width: 1120px; margin: 0 auto 28px; padding: 28px; background: var(--paper); border: 1px solid var(--line); border-radius: 7px; scroll-margin-top: 96px; }
@@ -55,6 +57,8 @@ p { margin: 8px 0 14px; }
 .hero-status { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 24px; }
 .hero-status span { padding: 5px 9px; background: #265b54; border: 1px solid #53827b; font-size: 13px; }
 .developer-credit { margin: 20px 0 0; color: #d7eeea; font-weight: 800; }
+.hero-guide-link { display: inline-block; margin-top: 4px; padding: 10px 14px; color: #133c36; background: #e7f6f2; border: 1px solid #91c7bc; font-weight: 800; text-decoration: none; }
+.hero-guide-link:hover, .hero-guide-link:focus-visible { background: white; outline: 3px solid #91c7bc; outline-offset: 2px; }
 .section-title { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 2px solid var(--accent-soft); }
 .section-title > span { width: 44px; height: 44px; display: grid; place-items: center; flex: 0 0 auto; color: var(--accent-dark); background: var(--accent-soft); border-radius: 50%; font-weight: 800; }
 

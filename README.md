@@ -2,6 +2,9 @@
 
 SHIS Local 離線操作手冊，供學校健康中心操作人員閱讀及協作平台嵌入使用。
 
+- 操作手冊：<https://rilakkumagavin.github.io/shis-local-manual/>
+- 安裝圖解教學：<https://rilakkumagavin.github.io/shis-local-manual/install/>
+
 - 對應系統版本：1.2.31
 - 手冊版本：1.2
 - 程式開發者：桃園市青溪國小 黃志豪

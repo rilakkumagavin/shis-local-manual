@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="SHIS Local 校園健康資訊系統離線安裝與首次啟用圖解教學">
+  <title>SHIS Local 安裝與首次啟用圖解教學</title>
+  <link rel="stylesheet" href="assets/install-guide.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">跳到主要內容</a>
+  <header class="site-header">
+    <div class="brand-mark" aria-hidden="true">SH</div>
+    <div class="brand-copy"><strong>SHIS Local 安裝教學</strong><span>校園健康資訊系統｜離線圖解版</span></div>
+    <div class="header-actions" aria-label="閱讀工具">
+      <button id="font-down" type="button" title="縮小文字" aria-label="縮小文字">−</button>
+      <button id="font-reset" type="button" title="標準文字大小" aria-label="目前文字大小 100%，按下恢復標準大小">T</button>
+      <button id="font-up" type="button" title="放大文字" aria-label="放大文字">＋</button>
+      <button id="print-guide" type="button">列印</button>
+    </div>
+  </header>
+
+  <div class="guide-layout">
+    <aside class="guide-nav" aria-label="安裝步驟目錄">
+      <label class="guide-search" for="guide-search">搜尋教學<input id="guide-search" type="search" placeholder="例如：金鑰、登入、連線"></label>
+      <nav id="guide-toc">
+        <a href="#overview">安裝前先看</a>
+        <a href="#step-1">01 確認安裝檔</a>
+        <a href="#step-2">02 管理員執行</a>
+        <a href="#step-3">03 Windows 允許</a>
+        <a href="#step-4">04 開始安裝</a>
+        <a href="#step-5">05 安裝位置</a>
+        <a href="#step-6">06 等待完成</a>
+        <a href="#step-7">07 連線資訊與金鑰</a>
+        <a href="#step-8">08 系統初始化</a>
+        <a href="#step-9">09 預覽與建立</a>
+        <a href="#step-10">10 第一次登入</a>
+        <a href="#step-11">11 匯入學生名冊</a>
+        <a href="#step-12">12 第二台電腦連線</a>
+        <a href="#troubleshooting">故障排除</a>
+        <a href="#support">求助時提供資料</a>
+      </nav>
+      <p class="offline-badge">完全離線可閱讀<br>畫面均為無個資教學示意圖</p>
+    </aside>
+
+    <main id="content">
+      <section id="overview" class="guide-section guide-hero" data-keywords="準備 系統需求 版本 port 3000">
+        <p class="eyebrow">給健康中心護理人員的安裝圖解</p>
+        <h1>SHIS Local 安裝與首次啟用</h1>
+        <p class="lead">依序完成 12 個步驟即可在健康中心主機建立系統，並讓第二台校內電腦透過瀏覽器連線。</p>
+        <div class="hero-status"><span>版本 1.2.31</span><span>Windows 10／11 64 位元</span><span>預設 TCP 3000</span><span>不需另外安裝 PostgreSQL</span></div>
+        <div class="callout warning"><strong>安裝前請確認</strong><span>使用具本機系統管理員權限的 Windows 帳號；主機接有線網路、不可長時間睡眠；至少保留 4 GB 可用磁碟空間。</span></div>
+        <div class="do-dont">
+          <article><h2>可以做</h2><ul><li>在健康中心主機安裝一次</li><li>第二台電腦只使用瀏覽器連線</li><li>學生名冊在初始化後再匯入</li></ul></article>
+          <article class="restricted"><h2>不要做</h2><ul><li>不要把 TCP 3000 開放到網際網路</li><li>不要公開一次性初始化金鑰</li><li>不要手動刪除 ProgramData 的資料庫</li></ul></article>
+        </div>
+      </section>
+
+      <section id="step-1" class="guide-section step-section" data-keywords="檔案 sha256 檢查碼 下載 版本">
+        <div class="section-title"><span>01</span><div><p>安裝前</p><h2>確認安裝檔與檢查碼</h2></div></div>
+        <ol><li>把安裝程式、SHA-256 檢查碼及本教學放在同一資料夾。</li><li>確認版本與學校管理員提供的正式版本相同。</li><li>若檔案來源不明或檢查碼不一致，停止安裝。</li></ol>
+        <figure><img src="assets/screenshots/01-verify-files.png" alt="檔案總管中顯示 SHIS Local 安裝檔、SHA-256 檢查碼與離線教學檔"><figcaption>圖 1：教學示意檔名；實際版本可能更新，以正式發布檔案為準。</figcaption></figure>
+      </section>
+
+      <section id="step-2" class="guide-section step-section" data-keywords="右鍵 系統管理員 執行 權限">
+        <div class="section-title"><span>02</span><div><p>啟動安裝</p><h2>以系統管理員身分執行</h2></div></div>
+        <ol><li>先將壓縮檔完整解壓縮。</li><li>在 <code>.exe</code> 安裝檔按滑鼠右鍵。</li><li>選擇「以系統管理員身分執行」。</li></ol>
+        <figure><img src="assets/screenshots/02-run-as-admin.png" alt="SHIS Local 安裝檔右鍵選單，反白以系統管理員身分執行"><figcaption>圖 2：若沒有系統管理員權限，請學校資訊管理人員協助。</figcaption></figure>
+      </section>
+
+      <section id="step-3" class="guide-section step-section" data-keywords="UAC Windows 允許 裝置 是">
+        <div class="section-title"><span>03</span><div><p>Windows 確認</p><h2>允許安裝程式變更裝置</h2></div></div>
+        <ol><li>確認畫面中的應用程式是 SHIS Local Setup。</li><li>再次確認檔案是由校內正式來源取得。</li><li>按「是」繼續。</li></ol>
+        <figure><img src="assets/screenshots/03-windows-uac.png" alt="Windows 使用者帳戶控制視窗，顯示 SHIS Local Setup 並可選擇是"><figcaption>圖 3：不要為了安裝而關閉整台電腦的 SmartScreen 或防毒功能。</figcaption></figure>
+      </section>
+
+      <section id="step-4" class="guide-section step-section" data-keywords="安裝程式 歡迎 下一步">
+        <div class="section-title"><span>04</span><div><p>安裝精靈</p><h2>閱讀內容並開始安裝</h2></div></div>
+        <ol><li>關閉其他 SHIS Local 視窗。</li><li>閱讀畫面中的版本與安裝內容。</li><li>按「下一步」。</li></ol>
+        <figure><img src="assets/screenshots/04-setup-welcome.png" alt="SHIS Local 安裝精靈歡迎畫面與下一步按鈕"><figcaption>圖 4：安裝包已包含網站、API、PostgreSQL 及背景服務。</figcaption></figure>
+      </section>
+
+      <section id="step-5" class="guide-section step-section" data-keywords="Program Files 路徑 位置 資料夾">
+        <div class="section-title"><span>05</span><div><p>程式目錄</p><h2>保留預設安裝位置</h2></div></div>
+        <ol><li>保留 <code>C:\Program Files\SHIS Local</code>。</li><li>不要安裝在桌面、下載或網路磁碟。</li><li>按「安裝」。</li></ol>
+        <figure><img src="assets/screenshots/05-install-location.png" alt="SHIS Local 安裝位置畫面，顯示預設 Program Files 路徑"><figcaption>圖 5：正式資料會放在 <code>C:\ProgramData\SHIS Local</code>，不與程式檔混在一起。</figcaption></figure>
+      </section>
+
+      <section id="step-6" class="guide-section step-section" data-keywords="等待 進度 資料庫 PostgreSQL 防火牆 服務">
+        <div class="section-title"><span>06</span><div><p>自動設定</p><h2>等待資料庫與服務建立完成</h2></div></div>
+        <ol><li>保持主機開機，不要重新啟動。</li><li>安裝通常需要數分鐘，硬碟較慢時可能更久。</li><li>等待健康檢查完成後再操作網站。</li></ol>
+        <figure><img src="assets/screenshots/06-install-progress.png" alt="SHIS Local 正在建立資料庫、Windows 服務與校內網路設定的進度畫面"><figcaption>圖 6：安裝期間會建立 PostgreSQL、四個 Windows 服務及 TCP 3000 防火牆規則。</figcaption></figure>
+        <div class="callout"><strong>正常現象</strong><span>進度列停留一段時間不一定是當機。若超過 15 分鐘完全沒有變化，再依本頁「故障排除」處理。</span></div>
+      </section>
+
+      <section id="step-7" class="guide-section step-section" data-keywords="connection-info 一次性 金鑰 LAN URL localhost ProgramData">
+        <div class="section-title"><span>07</span><div><p>安裝完成</p><h2>查看連線資訊與一次性初始化金鑰</h2></div></div>
+        <ol><li>安裝完成後保留自動開啟的連線資訊視窗。</li><li>記下 <code>Local URL</code> 與 <code>LAN URL</code>。</li><li>初始化時從此處取得一次性金鑰，不要拍照或傳送。</li></ol>
+        <figure><img src="assets/screenshots/07-connection-info.png" alt="連線資訊示意畫面，IP 與一次性初始化金鑰均以範例遮罩"><figcaption>圖 7：實際檔案位於 <code>C:\ProgramData\SHIS Local\connection-info.txt</code>。</figcaption></figure>
+        <div class="callout warning"><strong>一次性金鑰不是密碼</strong><span>它只能建立系統一次，不能登入、不能重設密碼；初始化完成後即失效。</span></div>
+      </section>
+
+      <section id="step-8" class="guide-section step-section" data-keywords="初始化 學校 管理員 護理師 帳號 密碼 金鑰">
+        <div class="section-title"><span>08</span><div><p>首次啟用</p><h2>填寫學校與正式帳號</h2></div></div>
+        <ol><li>在主機開啟 <code>http://localhost:3000/</code>。</li><li>填寫學校名稱、學校代碼、管理員及護理師資料。</li><li>兩個帳號使用不同密碼，每組密碼輸入兩次。</li><li>輸入一次性初始化金鑰。</li></ol>
+        <figure><img src="assets/screenshots/08-system-initialization.png" alt="正式系統初始化畫面，密碼與一次性金鑰均以圓點遮蔽"><figcaption>圖 8：圖片中的學校、帳號與金鑰均為示意，不是可使用的正式資料。</figcaption></figure>
+      </section>
+
+      <section id="step-9" class="guide-section step-section" data-keywords="預覽 學期 首次備份 建立 正式系統">
+        <div class="section-title"><span>09</span><div><p>確認提交</p><h2>預覽後正式建立系統</h2></div></div>
+        <ol><li>確認學校名稱、帳號及系統自動判斷的初始學期。</li><li>如有錯誤，按「返回修改」。</li><li>確認無誤後按「正式建立系統」。</li><li>等待系統建立首次 PostgreSQL 備份。</li></ol>
+        <figure><img src="assets/screenshots/09-initialization-preview.png" alt="初始化預覽畫面，列出學校、初始學期、帳號與首次備份"><figcaption>圖 9：初始化只能成功執行一次，提交前務必確認內容。</figcaption></figure>
+      </section>
+
+      <section id="step-10" class="guide-section step-section" data-keywords="登入 admin nurse 管理員 護理師 更新密碼 工作台">
+        <div class="section-title"><span>10</span><div><p>開始使用</p><h2>使用個人帳號第一次登入</h2></div></div>
+        <ol><li>管理員使用管理員帳號登入；護理師使用護理師帳號登入。</li><li>若系統要求更新密碼，輸入新密碼兩次。</li><li>完成後應進入工作台。</li></ol>
+        <figure><img src="assets/screenshots/10-first-login.png" alt="SHIS Local 登入畫面，帳號為泛稱且密碼已遮蔽"><figcaption>圖 10：不得共用帳號；登入、登出與失敗紀錄均會留下稽核資料。</figcaption></figure>
+      </section>
+
+      <section id="step-11" class="guide-section step-section" data-keywords="學生 名冊 匯入 Excel xls xlsx csv 預覽 錯誤">
+        <div class="section-title"><span>11</span><div><p>建立學生資料</p><h2>匯入第一份學生名冊</h2></div></div>
+        <ol><li>開啟「資料匯入匯出 → 學生名冊匯入」。</li><li>確認目標學期，選擇 <code>.xls</code>、<code>.xlsx</code> 或 <code>.csv</code>。</li><li>查看新增、更新、缺漏與錯誤列。</li><li>錯誤為 0 後，輸入本人密碼正式匯入。</li></ol>
+        <figure><img src="assets/screenshots/11-student-roster-import.png" alt="學生名冊匯入預覽示意，顯示來源、新增、更新與錯誤統計，不含學生資料"><figcaption>圖 11：不要跳過預覽；有錯誤時回原始 Excel 修正後重新選檔。</figcaption></figure>
+      </section>
+
+      <section id="step-12" class="guide-section step-section" data-keywords="第二台 電腦 IP 內網 LAN URL Test-NetConnection 3000">
+        <div class="section-title"><span>12</span><div><p>校內使用</p><h2>讓第二台校內電腦連線</h2></div></div>
+        <ol><li>在主機的連線資訊找到 <code>LAN URL</code>。</li><li>在第二台校內電腦的瀏覽器輸入完整網址。</li><li>確認登入畫面出現，再以個人帳號登入。</li><li>無法連線時執行 <code>Test-NetConnection 主機IP -Port 3000</code>。</li></ol>
+        <figure><img src="assets/screenshots/12-lan-connection.png" alt="健康中心主機與第二台校內電腦透過 TCP 3000 連線示意圖"><figcaption>圖 12：網址只在受管理的校內網路使用，不可設定對外 Port Forwarding。</figcaption></figure>
+      </section>
+
+      <section id="troubleshooting" class="guide-section" data-keywords="錯誤 空白 無法連線 runtime error logs 服務 防火牆">
+        <div class="section-title"><span>!</span><div><p>先自己檢查</p><h2>常見問題與處理順序</h2></div></div>
+        <details><summary>安裝超過 15 分鐘或出現 Runtime error</summary><p>不要重複安裝多次。記下錯誤碼，確認 <code>C:\ProgramData\SHIS Local\logs\install.log</code> 是否存在，再由資訊管理人員檢查 TCP 3000 是否被占用。</p></details>
+        <details><summary>開啟 localhost:3000 顯示空白或拒絕連線</summary><p>先等待主機開機後 1 至 2 分鐘，再從開始功能表執行「SHIS Local 系統檢查」。四個服務應為執行中：SHISLocalPostgreSQL、SHISLocalWeb、SHISLocalApi、SHISLocalGateway。</p></details>
+        <details><summary>第二台電腦無法連線</summary><p>確認主機未睡眠、IP 沒有改變、兩台電腦位於可互通的校內網段，且 <code>Test-NetConnection 主機IP -Port 3000</code> 顯示 True。</p></details>
+        <details><summary>無法開啟 connection-info.txt</summary><p>請由安裝主機的系統管理員開啟。不要自行變更整個 <code>C:\ProgramData\SHIS Local</code> 資料夾權限，也不要把檔案複製到公開資料夾。</p></details>
+        <details><summary>初始化金鑰找不到或無效</summary><p>確認讀取的是同一台主機的 `connection-info.txt`。若系統已初始化，金鑰失效屬正常現象，請直接使用正式帳號登入。</p></details>
+      </section>
+
+      <section id="support" class="guide-section" data-keywords="求助 技術支援 log 記錄 截圖 個資">
+        <div class="section-title"><span>?</span><div><p>交給資訊管理人員</p><h2>求助時請提供這些資料</h2></div></div>
+        <div class="support-grid"><article><h3>可以提供</h3><ul><li>安裝程式版本</li><li>發生時間與操作步驟</li><li>已遮蔽帳號、IP 與學生資料的錯誤截圖</li><li><code>logs</code> 內相關記錄檔</li><li>系統檢查結果</li></ul></article><article class="restricted"><h3>不可提供</h3><ul><li>一次性初始化金鑰</li><li>管理員或護理師密碼</li><li><code>config</code> 內的密鑰與資料庫密碼</li><li>完整學生名冊或健康資料</li><li>整個 <code>database</code> 資料夾</li></ul></article></div>
+        <p class="copyright-line">自行開發程式：桃園市青溪國小 黃志豪｜Qingxi Elementary School - Gavin Huang</p>
+      </section>
+      <p id="no-results" class="no-results" hidden>找不到符合的教學內容，請改用「金鑰、登入、學生、連線、錯誤」等關鍵字。</p>
+    </main>
+  </div>
+  <script src="assets/install-guide.js"></script>
+</body>
+</html>
