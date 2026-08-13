@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>學生健康資訊系統操作手冊</title>
+  <link rel="stylesheet" href="assets/manual.css">
+  <script src="assets/manual.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#manual-content">跳到主要內容</a>
+  <header class="site-header">
+    <div class="brand-mark" aria-hidden="true">護</div>
+    <div class="brand-copy">
+      <strong>學生健康資訊系統</strong>
+      <span>離線操作手冊 · SHIS Local 1.2.31</span>
+    </div>
+    <div class="header-actions" aria-label="手冊工具">
+      <button id="font-down" type="button" title="縮小文字" aria-label="縮小文字">A−</button>
+      <button id="font-reset" type="button" title="標準文字" aria-label="使用標準文字大小">A</button>
+      <button id="font-up" type="button" title="放大文字" aria-label="放大文字">A＋</button>
+      <button id="print-manual" type="button">列印手冊</button>
+    </div>
+  </header>
+
+  <div class="manual-layout">
+    <aside class="manual-nav" aria-label="操作手冊目錄">
+      <label class="manual-search">
+        <span>搜尋手冊</span>
+        <input id="manual-search" type="search" placeholder="例如：傷病、匯入、備份" autocomplete="off">
+      </label>
+      <nav id="manual-toc">
+        <a href="#start">開始使用</a>
+        <a href="#daily">護理師日常流程</a>
+        <a href="#students">學生與學籍</a>
+        <a href="#injury">傷病登錄與追蹤</a>
+        <a href="#health">健康特殊名單</a>
+        <a href="#reports">通知與報表</a>
+        <a href="#imports">資料匯入匯出</a>
+        <a href="#admin">系統管理</a>
+        <a href="#privacy">個資與安全</a>
+        <a href="#developer">開發者與著作權</a>
+        <a href="#troubleshooting">常見問題</a>
+      </nav>
+      <p class="offline-badge">可離線開啟</p>
+    </aside>
+
+    <main id="manual-content" tabindex="-1">
+      <section class="manual-hero manual-section" id="start" data-keywords="開始 登入 初始化 安裝 學校 管理員 護理師">
+        <p class="eyebrow">校園健康中心工作手冊</p>
+        <h1>學生健康資訊系統操作手冊</h1>
+        <p class="lead">依護理師實際工作順序整理，涵蓋學生查詢、傷病登錄、追蹤、報表、資料匯入、備份與系統更新。</p>
+        <div class="hero-status">
+          <span>適用版本：1.2.31</span>
+          <span>更新日期：2026-08-13</span>
+          <span>圖片：已移除或遮蔽個資</span>
+        </div>
+        <p class="developer-credit">開發者：桃園市青溪國小 黃志豪</p>
+      </section>
+
+      <section class="manual-section" data-keywords="初始化 學校代碼 帳號 學期 備份">
+        <div class="section-title"><span>01</span><div><p>首次使用</p><h2>正式系統初始化</h2></div></div>
+        <ol class="steps">
+          <li><strong>填寫學校資料</strong><span>輸入學校名稱、學校代碼與初始學期。</span></li>
+          <li><strong>建立兩種帳號</strong><span>設定管理員與護理師帳號，兩次輸入密碼確認。</span></li>
+          <li><strong>確認初始化預覽</strong><span>核對學校、學期與帳號資料後再執行。</span></li>
+          <li><strong>完成首次備份</strong><span>初始化完成後確認系統已建立第一份備份。</span></li>
+        </ol>
+        <figure class="screen-figure">
+          <img src="assets/screenshots/01-initialization.png" alt="正式系統初始化畫面，依序填寫學校與初始帳號資料">
+          <figcaption>初始化畫面不需要先匯入正式學生名冊；完成初始化後再由資料匯入功能處理。</figcaption>
+        </figure>
+        <div class="callout warning"><strong>密碼安全</strong><span>首次登入若系統要求變更密碼，完成後會回到工作台。請勿共用管理員帳號。</span></div>
+      </section>
+
+      <section class="manual-section" id="daily" data-keywords="工作台 日常 傷病 今天 通知單 待追蹤">
+        <div class="section-title"><span>02</span><div><p>日常作業</p><h2>護理師建議操作順序</h2></div></div>
+        <div class="workflow-strip" aria-label="日常工作流程">
+          <div><b>1</b><strong>確認學期</strong><span>查看頂端目前學期</span></div>
+          <div><b>2</b><strong>找到學生</strong><span>輸入班級座號或學號</span></div>
+          <div><b>3</b><strong>完成登錄</strong><span>勾選部位、分類與處置</span></div>
+          <div><b>4</b><strong>追蹤處理</strong><span>補印通知或查看今日紀錄</span></div>
+        </div>
+        <div class="quick-grid">
+          <article><h3>緊急處理</h3><p>直接開啟「傷病登錄」，輸入五碼班級座號，例如 30104。</p></article>
+          <article><h3>查詢既有紀錄</h3><p>開啟「傷病紀錄查詢」，可依日期、班級、學生或待追蹤篩選。</p></article>
+          <article><h3>管理追蹤工作</h3><p>從工作台查看今日傷病、連續受傷、通知與待追蹤項目。</p></article>
+        </div>
+      </section>
+
+      <section class="manual-section" id="students" data-keywords="學生 學籍 年級 班級 座號 搜尋 畢業 封存 轉出 轉入">
+        <div class="section-title"><span>03</span><div><p>學生與學籍</p><h2>學生查詢與學期編班</h2></div></div>
+        <p>先選年級，再選班級與座號；也可以直接輸入姓名或學號。點選學生後，詳細資料會移到畫面可見位置，避免拉到頁面最下方。</p>
+        <figure class="screen-figure compact">
+          <img src="assets/screenshots/02-student-filters.png" alt="學生基本資料的年級、班級與座號篩選器，學生名單已裁除">
+          <figcaption>截圖只保留篩選控制；學生姓名、學號與生日清單未收錄在手冊中。</figcaption>
+        </figure>
+        <div class="two-column">
+          <article><h3>學期名冊</h3><ul><li>每學期重新匯入完整名冊。</li><li>身分證或居留證號作為學生主檔識別。</li><li>學號、班級與座號可隨學期更新。</li></ul></article>
+          <article><h3>轉出與畢業</h3><ul><li>新名冊未出現者先交由護理人員確認。</li><li>轉出或畢業採封存，不刪除健康歷史。</li><li>學生轉回時可重新啟用並加入新班級。</li></ul></article>
+        </div>
+      </section>
+
+      <section class="manual-section" id="injury" data-keywords="傷病 登錄 快速 班級座號 部位 外傷 內科 處置 草稿 通知單 歷史 修改">
+        <div class="section-title"><span>04</span><div><p>健康中心核心流程</p><h2>傷病登錄與歷史修訂</h2></div></div>
+        <figure class="screen-figure">
+          <img src="assets/screenshots/03-injury-quick-search.png" alt="傷病登錄快速選擇學生區，可輸入五碼班級座號或分別選擇年級、班級、座號；學生資料已遮蔽">
+          <figcaption>可輸入五碼班級座號，例如 30104 代表 3 年 1 班 4 號，也可分別選擇年級、班級與座號。</figcaption>
+        </figure>
+        <ol class="steps">
+          <li><strong>選擇學生</strong><span>使用班級座號、姓名或學號搜尋；確認同頁的家庭聯絡與健康提醒。</span></li>
+          <li><strong>事件資訊</strong><span>填寫發生時間與地點；觀察時間、生命徵象皆為選填。</span></li>
+          <li><strong>勾選分類</strong><span>依序選擇受傷部位、外傷或內科症狀，可同時勾選多項。</span></li>
+          <li><strong>記錄處置</strong><span>至少選擇一項處置；用藥、送醫或其他處置需補充說明。</span></li>
+          <li><strong>完成或列印</strong><span>可完成紀錄後回工作台，或直接完成並輸出通知單。</span></li>
+        </ol>
+        <div class="callout info"><strong>修改紀錄</strong><span>在「傷病紀錄查詢」選擇一筆紀錄並按修訂，系統會回到原傷病登錄頁帶入原資料。健康資料不直接刪除，只能修訂或作廢。</span></div>
+      </section>
+
+      <section class="manual-section" id="health" data-keywords="特殊疾病 個人疾病史 重大傷病 身心障礙 手冊 查詢 匯入 匯出">
+        <div class="section-title"><span>05</span><div><p>敏感健康資料</p><h2>健康特殊名單</h2></div></div>
+        <div class="feature-table" role="table" aria-label="健康特殊名單功能">
+          <div class="feature-row header" role="row"><span>資料類型</span><span>可用功能</span><span>注意事項</span></div>
+          <div class="feature-row" role="row"><strong>個人疾病史</strong><span>查詢、新增、修訂、匯入、匯出</span><span>照護指示與病況說明屬敏感資料</span></div>
+          <div class="feature-row" role="row"><strong>重大傷病資料</strong><span>依班級與疾病類型管理</span><span>保留歷史，不以刪除方式處理</span></div>
+          <div class="feature-row" role="row"><strong>身心障礙手冊</strong><span>可逐筆選擇匯入</span><span>歷史畢業生預設不勾選</span></div>
+        </div>
+        <p>傷病登錄選到學生後，具權限者可在同一頁查看重要健康提醒與照護資訊。不具權限帳號無法從 API、匯出檔或網址繞過限制。</p>
+      </section>
+
+      <section class="manual-section" id="reports" data-keywords="報表 日 周 月 學期 視力 待複檢 BMI 傷病分析 統計 連續受傷">
+        <div class="section-title"><span>06</span><div><p>決策與追蹤</p><h2>通知與報表</h2></div></div>
+        <div class="two-column">
+          <article><h3>傷病報表</h3><ul><li>日、週、月與學期範圍。</li><li>月份、地點、年級、類型與處置分析。</li><li>連續受傷學生與高風險地點警示。</li></ul></article>
+          <article><h3>健康分析</h3><ul><li>視力異常與複檢完成率。</li><li>身高、體重與 BMI 分布。</li><li>未檢、缺漏、重複與異常值檢核。</li></ul></article>
+        </div>
+        <figure class="screen-figure compact">
+          <img src="assets/screenshots/05-vision-report.png" alt="依年級顯示視力應檢、已檢、異常與待複檢人數的統計表">
+          <figcaption>「待複檢」代表視力異常但尚未登錄複檢結果；點選人數可查看學生明細。</figcaption>
+        </figure>
+        <div class="callout warning"><strong>匯出前先預覽</strong><span>通知單、Excel 與 PDF 輸出前先確認學期與範圍；敏感匯出需重新驗證本人密碼。</span></div>
+      </section>
+
+      <section class="manual-section" id="imports" data-keywords="匯入 匯出 名冊 Excel xls xlsx csv 身高 體重 視力 桃園 學務系統 檢核 預覽">
+        <div class="section-title"><span>07</span><div><p>資料交換</p><h2>名冊與健康資料匯入匯出</h2></div></div>
+        <div class="workflow-strip" aria-label="資料匯入流程">
+          <div><b>1</b><strong>選擇檔案</strong><span>.xls、.xlsx 或 .csv</span></div>
+          <div><b>2</b><strong>欄位辨識</strong><span>確認學期與資料類型</span></div>
+          <div><b>3</b><strong>逐列檢核</strong><span>錯誤列不會寫入</span></div>
+          <div><b>4</b><strong>勾選資料</strong><span>全選或逐筆選擇</span></div>
+          <div><b>5</b><strong>確認匯入</strong><span>重新驗證後執行</span></div>
+        </div>
+        <figure class="screen-figure">
+          <img src="assets/screenshots/04-health-import.png" alt="身高體重視力資料匯入畫面，顯示檔案、匯入學期與檢核摘要，學生明細已裁除">
+          <figcaption>畫面只保留匯入設定與彙總數字，學生姓名、學號與個別健康數值已從圖片移除。</figcaption>
+        </figure>
+        <div class="two-column">
+          <article><h3>學生名冊</h3><p>支援網站 17 欄格式與桃園市學務系統匯出名冊；新名冊缺少的既有學生會列入待確認。</p></article>
+          <article><h3>身高體重視力</h3><p>可匯入桃園格式，亦可匯出 14 欄舊式 Excel，畫面明確標示「提供桃園學務系統匯入使用」。</p></article>
+        </div>
+        <div class="callout info"><strong>歷史學生資料</strong><span>舊學期、轉出或畢業學生資料可逐筆勾選成為歷史封存紀錄，不會加入目前在學名冊。</span></div>
+      </section>
+
+      <section class="manual-section" id="admin" data-keywords="管理 帳號 權限 學校設定 備份 還原 更新 shisupdate 稽核">
+        <div class="section-title"><span>08</span><div><p>管理員作業</p><h2>帳號、備份與系統更新</h2></div></div>
+        <div class="feature-table" role="table" aria-label="系統管理作業">
+          <div class="feature-row header" role="row"><span>功能</span><span>建議頻率</span><span>操作重點</span></div>
+          <div class="feature-row" role="row"><strong>帳號與權限</strong><span>人員異動時</span><span>管理員與護理師使用不同帳號</span></div>
+          <div class="feature-row" role="row"><strong>資料備份</strong><span>每日自動、重大操作前</span><span>定期複製至另一顆磁碟或 NAS</span></div>
+          <div class="feature-row" role="row"><strong>資料還原</strong><span>僅故障或移轉時</span><span>先預覽範圍並重新驗證密碼</span></div>
+          <div class="feature-row" role="row"><strong>系統更新</strong><span>收到正式更新檔時</span><span>只接受已簽章的 .shisupdate</span></div>
+        </div>
+        <figure class="screen-figure compact">
+          <img src="assets/screenshots/06-system-update.png" alt="系統更新畫面的更新檔上傳區與更新紀錄操作">
+          <figcaption>套用更新前會先驗證簽章並備份資料；程式更新不覆蓋 PostgreSQL 學生與健康資料。</figcaption>
+        </figure>
+        <ol class="steps">
+          <li><strong>上傳更新檔</strong><span>選擇副檔名為 .shisupdate 的正式檔案。</span></li>
+          <li><strong>核對版本與說明</strong><span>確認檔案已驗證、最低版本與檔案數量合理。</span></li>
+          <li><strong>套用更新</strong><span>重新輸入管理員密碼；服務短暫重新啟動。</span></li>
+          <li><strong>確認結果</strong><span>重新整理畫面，檢查目前版本與狀態是否完成。</span></li>
+        </ol>
+      </section>
+
+      <section class="manual-section" id="privacy" data-keywords="個資 遮蔽 安全 身分證 電話 地址 健康資料 截圖 協作平台">
+        <div class="section-title"><span>09</span><div><p>發布前必讀</p><h2>個資遮蔽與安全原則</h2></div></div>
+        <div class="privacy-grid">
+          <article><strong>不得出現在公開畫面</strong><p>姓名、身分證或居留證號、學號、生日、電話、地址、家長姓名、班級座號與可識別健康內容。</p></article>
+          <article><strong>截圖處理方式</strong><p>優先裁除資料列；無法裁除時以不透明色塊覆蓋原始像素，不只使用模糊效果。</p></article>
+          <article><strong>發布前複核</strong><p>放大圖片檢查文字、檔名、瀏覽器網址、提示訊息與背景區域，不得殘留可辨識資訊。</p></article>
+        </div>
+        <div class="callout success"><strong>本手冊狀態</strong><span>收錄圖片已裁除或遮蔽直接識別資料；資料夾內未放入原始未遮蔽截圖。</span></div>
+      </section>
+
+      <section class="manual-section developer-section" id="developer" data-keywords="開發者 設計者 黃志豪 青溪國小 自行開發 著作權 授權 署名">
+        <div class="section-title"><span>10</span><div><p>Developer & Copyright</p><h2>開發者介紹與著作權</h2></div></div>
+        <div class="developer-profile">
+          <div class="developer-avatar" aria-hidden="true">黃</div>
+          <div class="developer-identity">
+            <p class="profile-label">系統開發者／設計者</p>
+            <h3>桃園市青溪國小 黃志豪</h3>
+            <p class="english-credit">Qingxi Elementary School - Gavin Huang</p>
+          </div>
+          <p class="developer-summary">本系統的功能概念與傷病處理流程，延伸自原有傷病系統及校園健康中心既有作業需求；開發者負責將需求轉化為可在校內主機獨立運作的程式，完成程式實作、安裝部署、備份還原與更新機制。</p>
+        </div>
+
+        <div class="design-principles" aria-label="系統設計理念">
+          <article><span>01</span><h3>貼近護理現場</h3><p>縮短學生查找與傷病登錄步驟，讓重要健康提醒、家庭聯絡及歷史紀錄在需要時清楚呈現。</p></article>
+          <article><span>02</span><h3>資料由學校掌握</h3><p>採校內主機與 PostgreSQL，支援備份、還原、移轉及離線更新，避免日常作業依賴外部雲端服務。</p></article>
+          <article><span>03</span><h3>安全且可追溯</h3><p>以帳號權限、敏感資料遮罩、重新驗證與稽核紀錄保護學生個資及健康資訊。</p></article>
+          <article><span>04</span><h3>持續維護改善</h3><p>透過簽章更新檔修正錯誤與增加功能，更新程式時保留各校既有資料與設定。</p></article>
+        </div>
+
+        <div class="copyright-panel">
+          <div class="copyright-heading"><span aria-hidden="true">©</span><div><p>Copyright Notice</p><h3>著作權與使用說明</h3></div></div>
+          <p><strong>學生健康資訊系統（SHIS Local）的程式部分，由桃園市青溪國小黃志豪自行開發。</strong></p>
+          <div class="concept-origin"><strong>功能概念來源說明</strong><p>本系統的功能概念、傷病登錄流程、健康中心業務方法與資料欄位，係延伸原有傷病系統及既有校務需求；開發者不主張對上述概念、流程、方法或原有系統功能享有著作權。</p></div>
+          <p>開發者主張的著作權範圍，限於自行完成且具原創性的原始程式碼、目的碼、程式模組及其具體程式表達。著作人依法享有姓名表示權；使用、部署、備份、移轉或依法修改該程式時，應保留合理且清楚的程式開發者署名。</p>
+          <div class="usage-grid">
+            <article class="allowed"><h4>允許的校務使用</h4><ul><li>為校務與學生健康管理目的安裝及操作程式。</li><li>依系統功能進行資料備份、還原與主機移轉。</li><li>使用正式更新檔進行錯誤修正與功能升級。</li><li>依授權範圍保存必要的程式備份。</li></ul></article>
+            <article class="restricted"><h4>程式部分未經授權不得進行</h4><ul><li>移除、遮蔽或竄改程式開發者署名。</li><li>冒用自己或第三人名義宣稱為程式原始開發者。</li><li>未經同意重製、改作、公開傳輸或散布自行開發的程式碼或編譯程式。</li><li>除法律明文允許外，以反編譯等方式複製或改作受保護的具體程式表達。</li></ul></article>
+          </div>
+          <div class="rights-notes">
+            <p><strong>學生資料：</strong>各校匯入及建立的學生、家庭與健康資料，不因使用本系統而移轉給開發者，仍由使用學校依個人資料保護及校務規範管理。</p>
+            <p><strong>第三方元件：</strong>第三方套件、開放原始碼程式及原有系統內容不屬於開發者的程式著作權範圍，分別適用原權利人或原授權條款。</p>
+            <p><strong>權利範圍：</strong>本聲明不限制他人以自己的程式表達實現相同或類似功能。實際著作權與授權關係仍以中華民國著作權法、任職關係、契約及個別授權文件為準。</p>
+          </div>
+          <p class="copyright-line">© 2026 桃園市青溪國小 黃志豪。保留所有權利。</p>
+        </div>
+      </section>
+
+      <section class="manual-section" id="troubleshooting" data-keywords="問題 無法 登入 空白 連線 更新 匯入 權限 防火牆">
+        <div class="section-title"><span>11</span><div><p>排除問題</p><h2>常見問題</h2></div></div>
+        <details><summary>其他電腦無法連線</summary><p>確認主機服務已啟動、網址使用主機固定 IP 與 3000 連接埠，並檢查 Windows 防火牆允許校內子網路連入。</p></details>
+        <details><summary>畫面顯示沒有權限</summary><p>確認目前登入帳號角色；護理師不應看到帳號管理、系統設定、備份還原或系統更新等管理功能。</p></details>
+        <details><summary>匯入資料全部顯示錯誤</summary><p>先確認匯入學期、檔案格式與學生名冊是否一致。錯誤列不會寫入，可修正共同原因後重新檢核。</p></details>
+        <details><summary>更新長時間停在已排程</summary><p>服務更新時可能短暫無法連線。等待數分鐘後重新整理；若仍未完成，由管理員查看更新紀錄與安裝記錄。</p></details>
+        <details><summary>日期、姓名或中文字顯示異常</summary><p>確認使用支援 UTF-8 的新版瀏覽器。Excel 匯入請避免以文字編輯器改存造成編碼或日期型態變化。</p></details>
+      </section>
+
+      <section class="manual-section document-control" aria-label="文件資訊">
+        <h2>文件資訊</h2>
+        <dl><div><dt>開發者</dt><dd>桃園市青溪國小 黃志豪</dd></div><div><dt>英文署名</dt><dd>Qingxi Elementary School - Gavin Huang</dd></div><div><dt>手冊版本</dt><dd>1.2</dd></div><div><dt>對應系統</dt><dd>SHIS Local 1.2.31</dd></div><div><dt>開發性質</dt><dd>功能概念延伸既有傷病系統；程式部分由開發者自行開發</dd></div><div><dt>發布用途</dt><dd>校內離線使用與協作平台操作說明</dd></div></dl>
+      </section>
+
+      <p id="no-results" class="no-results" hidden>找不到符合的章節，請更換搜尋文字。</p>
+    </main>
+  </div>
+</body>
+</html>
