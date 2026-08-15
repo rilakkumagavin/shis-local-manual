@@ -48,7 +48,7 @@
         <p class="eyebrow">給健康中心護理人員的安裝圖解</p>
         <h1>SHIS Local 安裝與首次啟用</h1>
         <p class="lead">依序完成 12 個步驟即可在健康中心主機建立系統，並讓第二台校內電腦透過瀏覽器連線。</p>
-        <div class="hero-status"><span>版本 1.2.31</span><span>Windows 10／11 64 位元</span><span>預設 TCP 3000</span><span>不需另外安裝 PostgreSQL</span></div>
+        <div class="hero-status"><span>版本 1.2.32</span><span>Windows 10／11 64 位元</span><span>預設 TCP 3000</span><span>不需另外安裝 PostgreSQL</span></div>
         <div class="callout warning"><strong>安裝前請確認</strong><span>使用具本機系統管理員權限的 Windows 帳號；主機接有線網路、不可長時間睡眠；至少保留 4 GB 可用磁碟空間。</span></div>
         <div class="do-dont">
           <article><h2>可以做</h2><ul><li>在健康中心主機安裝一次</li><li>第二台電腦只使用瀏覽器連線</li><li>學生名冊在初始化後再匯入</li></ul></article>
@@ -130,13 +130,14 @@
         <figure><img src="assets/screenshots/12-lan-connection.png" alt="健康中心主機與第二台校內電腦透過 TCP 3000 連線示意圖"><figcaption>圖 12：網址只在受管理的校內網路使用，不可設定對外 Port Forwarding。</figcaption></figure>
       </section>
 
-      <section id="troubleshooting" class="guide-section" data-keywords="錯誤 空白 無法連線 runtime error logs 服務 防火牆">
+      <section id="troubleshooting" class="guide-section" data-keywords="錯誤 空白 無法連線 runtime error logs 服務 防火牆 初始化 備份 要求編號">
         <div class="section-title"><span>!</span><div><p>先自己檢查</p><h2>常見問題與處理順序</h2></div></div>
         <details><summary>安裝超過 15 分鐘或出現 Runtime error</summary><p>不要重複安裝多次。記下錯誤碼，確認 <code>C:\ProgramData\SHIS Local\logs\install.log</code> 是否存在，再由資訊管理人員檢查 TCP 3000 是否被占用。</p></details>
         <details><summary>開啟 localhost:3000 顯示空白或拒絕連線</summary><p>先等待主機開機後 1 至 2 分鐘，再從開始功能表執行「SHIS Local 系統檢查」。四個服務應為執行中：SHISLocalPostgreSQL、SHISLocalWeb、SHISLocalApi、SHISLocalGateway。</p></details>
         <details><summary>第二台電腦無法連線</summary><p>確認主機未睡眠、IP 沒有改變、兩台電腦位於可互通的校內網段，且 <code>Test-NetConnection 主機IP -Port 3000</code> 顯示 True。</p></details>
         <details><summary>無法開啟 connection-info.txt</summary><p>請由安裝主機的系統管理員開啟。不要自行變更整個 <code>C:\ProgramData\SHIS Local</code> 資料夾權限，也不要把檔案複製到公開資料夾。</p></details>
         <details><summary>初始化金鑰找不到或無效</summary><p>確認讀取的是同一台主機的 `connection-info.txt`。若系統已初始化，金鑰失效屬正常現象，請直接使用正式帳號登入。</p></details>
+        <details><summary>初始化顯示「系統處理失敗」或首次備份失敗</summary><p>先重新整理一次。若出現登入畫面，表示系統資料已建立，請登入管理員帳號並立即到「資料備份與還原」建立首次備份；若仍停在初始化精靈，1.2.32 會先檢查 PostgreSQL 備份工具與備份目錄，不會在檢查失敗時寫入正式資料。請記下畫面上的要求編號，交由資訊管理人員查看 <code>C:\ProgramData\SHIS Local\logs\SHISApiService.out.log</code> 與 <code>SHISApiService.err.log</code>。</p></details>
       </section>
 
       <section id="support" class="guide-section" data-keywords="求助 技術支援 log 記錄 截圖 個資">
