@@ -172,7 +172,8 @@
           <div class="feature-row" role="row"><strong>帳號與權限</strong><span>人員異動時</span><span>管理員與護理師使用不同帳號</span></div>
           <div class="feature-row" role="row"><strong>資料備份</strong><span>每日自動、重大操作前</span><span>定期複製至另一顆磁碟或 NAS</span></div>
           <div class="feature-row" role="row"><strong>資料還原</strong><span>僅故障或移轉時</span><span>先預覽範圍並重新驗證密碼</span></div>
-          <div class="feature-row" role="row"><strong>學制設定</strong><span>初次安裝或轉換學制時</span><span>選擇國小、國中或國小國中並存；現有班級不相容時系統會阻止誤改</span></div>
+          <div class="feature-row" role="row"><strong>學制設定</strong><span>初次安裝或轉換學制時</span><span>國小 1–6 年級、國中 7–9 年級；已畢業歷史班級不阻擋設定</span></div>
+          <div class="feature-row" role="row"><strong>感染關聯設定</strong><span>班級位置或共同活動異動時</span><span>由管理員獨立維護相鄰班級、共用空間及共同活動</span></div>
           <div class="feature-row" role="row"><strong>清除並重新匯入</strong><span>測試完成、正式上線前</span><span>先建立完整可讀備份，再清除學生與業務資料</span></div>
           <div class="feature-row" role="row"><strong>系統更新</strong><span>收到正式更新檔時</span><span>最新版累積更新可一次升級，不必逐版安裝</span></div>
         </div>
@@ -186,11 +187,21 @@
           <li><strong>套用更新</strong><span>重新輸入管理員密碼；服務短暫重新啟動。</span></li>
           <li><strong>確認結果</strong><span>重新整理畫面，檢查目前版本與狀態是否完成。</span></li>
         </ol>
-        <div class="callout warning"><strong>清除測試資料並重新匯入</strong><span>進入「學校基本設定」，先確認畫面列出的學生、班級、傷病、健檢、匯入批次、報表、封存與檔案數量，再按「清除並重新初始化」。必須輸入「清除業務資料」及管理員本人密碼。備份建立或可讀性驗證失敗時，系統不會刪除任何資料。</span></div>
+        <div class="callout warning"><strong>清除測試資料並重新匯入</strong><span>此功能只適用於安裝測試完成、準備正式上線前。正式資料已開始使用後，不可將它當成一般刪除功能。只有具系統管理權限的管理員能看見及執行。</span></div>
+        <ol class="steps">
+          <li><strong>開啟管理員資料維護</strong><span>依序進入「系統管理 → 資料備份與還原」，捲動到頁面最下方的「管理員資料維護」。護理師及一般帳號不會顯示此區塊。</span></li>
+          <li><strong>核對影響範圍</strong><span>確認學生、班級、傷病、健檢、匯入批次、報表、封存與檔案筆數。若數量與預期不符，立即停止。</span></li>
+          <li><strong>啟動清除確認</strong><span>按「清除並重新初始化」，閱讀不可逆影響，再輸入指定文字「清除業務資料」。</span></li>
+          <li><strong>完成本人驗證</strong><span>輸入目前登入管理員的本人密碼。系統會先建立完整 PostgreSQL 備份並驗證可讀性；任何一步失敗都不會清除資料。</span></li>
+          <li><strong>保存完成憑證</strong><span>畫面會顯示備份檔名與位置。確認成功後再前往「資料匯入」，匯入正式學生名冊。</span></li>
+          <li><strong>依序重新匯入</strong><span>先匯入學生名冊並完成班級座號檢核，再匯入重大傷病、身高體重視力及必要的歷年傷病資料。</span></li>
+        </ol>
         <div class="two-column">
           <article><h3>會清除</h3><p>學生主檔、編班、健康與傷病資料、匯入批次、報表、畢業或轉出封存及相關檔案。</p></article>
           <article><h3>會保留</h3><p>學校與學期設定、管理員與護理師帳號權限、系統代碼、備份排程、更新紀錄及獨立稽核紀錄。</p></article>
         </div>
+        <div class="callout info"><strong>國小畢業資料判斷</strong><span>國小學制只允許目前在學名冊使用 1–6 年級。已畢業學生及七年級以上的歷史班級會保留，不會阻擋學制設定；若仍有在學或留校狀態的超齡學生，請先完成畢業封存。</span></div>
+        <div class="callout info"><strong>感染關聯設定的新位置</strong><span>由管理員進入「系統管理 → 感染關聯設定」，維護相鄰教室、共用空間或固定共同活動的班級。此功能已不放在學校基本設定，既有關聯資料不需重新建立。</span></div>
       </section>
 
       <section class="manual-section" id="privacy" data-keywords="個資 遮蔽 安全 身分證 電話 地址 健康資料 截圖 協作平台">
