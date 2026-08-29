@@ -48,7 +48,7 @@
         <p class="eyebrow">給健康中心護理人員的安裝圖解</p>
         <h1>SHIS Local 安裝與首次啟用</h1>
         <p class="lead">依序完成 12 個步驟即可在健康中心主機建立系統，並讓第二台校內電腦透過瀏覽器連線。</p>
-        <div class="hero-status"><span>版本 1.2.49</span><span>Windows 10／11 64 位元</span><span>預設 TCP 3000</span><span>不需另外安裝 PostgreSQL</span></div>
+        <div class="hero-status"><span>版本 1.2.58</span><span>Windows 10／11 64 位元</span><span>預設 TCP 3000</span><span>不需另外安裝 PostgreSQL</span></div>
         <div class="callout warning"><strong>安裝前請確認</strong><span>使用具本機系統管理員權限的 Windows 帳號；主機接有線網路、不可長時間睡眠；至少保留 4 GB 可用磁碟空間。</span></div>
         <div class="do-dont">
           <article><h2>可以做</h2><ul><li>在健康中心主機安裝一次</li><li>第二台電腦只使用瀏覽器連線</li><li>學生名冊在初始化後再匯入</li></ul></article>
@@ -102,13 +102,13 @@
 
       <section id="step-8" class="guide-section step-section" data-keywords="初始化 學校 管理員 護理師 帳號 密碼 金鑰">
         <div class="section-title"><span>08</span><div><p>首次啟用</p><h2>填寫學校與正式帳號</h2></div></div>
-        <ol><li>在主機開啟 <code>http://localhost:3000/</code>。</li><li>填寫學校名稱、學校代碼、管理員及護理師資料。</li><li>兩個帳號使用不同密碼，每組密碼輸入兩次。</li><li>輸入一次性初始化金鑰。</li></ol>
+        <ol><li>在主機開啟 <code>http://localhost:3000/</code>。</li><li>填寫學校名稱、學校代碼，並選擇國小、國中或國小國中並存學制。</li><li>填寫管理員及護理師資料；兩個帳號使用不同密碼，每組密碼輸入兩次。</li><li>輸入一次性初始化金鑰。</li></ol>
         <figure><img src="assets/screenshots/08-system-initialization.png" alt="正式系統初始化畫面，密碼與一次性金鑰均以圓點遮蔽"><figcaption>圖 8：圖片中的學校、帳號與金鑰均為示意，不是可使用的正式資料。</figcaption></figure>
       </section>
 
       <section id="step-9" class="guide-section step-section" data-keywords="預覽 學期 首次備份 建立 正式系統">
         <div class="section-title"><span>09</span><div><p>確認提交</p><h2>預覽後正式建立系統</h2></div></div>
-        <ol><li>確認學校名稱、帳號及系統自動判斷的初始學期。</li><li>如有錯誤，按「返回修改」。</li><li>確認無誤後按「正式建立系統」。</li><li>等待系統建立首次 PostgreSQL 備份。</li></ol>
+        <ol><li>確認學校名稱、學制、帳號及系統自動判斷的初始學期。</li><li>如有錯誤，按「返回修改」。</li><li>確認無誤後按「正式建立系統」。</li><li>等待系統建立首次 PostgreSQL 備份。</li></ol>
         <figure><img src="assets/screenshots/09-initialization-preview.png" alt="初始化預覽畫面，列出學校、初始學期、帳號與首次備份"><figcaption>圖 9：初始化只能成功執行一次，提交前務必確認內容。</figcaption></figure>
       </section>
 
@@ -120,7 +120,7 @@
 
       <section id="step-11" class="guide-section step-section" data-keywords="學生 名冊 匯入 Excel xls xlsx csv 預覽 錯誤">
         <div class="section-title"><span>11</span><div><p>建立學生資料</p><h2>匯入第一份學生名冊</h2></div></div>
-        <ol><li>開啟「資料匯入匯出 → 學生名冊匯入」。</li><li>確認目標學期，選擇 <code>.xls</code>、<code>.xlsx</code> 或 <code>.csv</code>。</li><li>查看新增、更新、缺漏與錯誤列。</li><li>錯誤為 0 後，輸入本人密碼正式匯入。</li></ol>
+        <ol><li>開啟「資料匯入匯出 → 資料匯入」。</li><li>確認目標學期與學校基本設定中的學制，選擇 <code>.xls</code>、<code>.xlsx</code> 或 <code>.csv</code>。</li><li>查看新增、更新、待確認與錯誤列；國小使用 1–6 年級，國中使用 7–9 年級。</li><li>錯誤為 0 後，輸入本人密碼正式匯入。</li></ol>
         <figure><img src="assets/screenshots/11-student-roster-import.png" alt="學生名冊匯入預覽示意，顯示來源、新增、更新與錯誤統計，不含學生資料"><figcaption>圖 11：不要跳過預覽；有錯誤時回原始 Excel 修正後重新選檔。</figcaption></figure>
       </section>
 
