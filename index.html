@@ -14,7 +14,7 @@
     <div class="brand-mark" aria-hidden="true">護</div>
     <div class="brand-copy">
       <strong>學生健康資訊系統</strong>
-      <span>離線操作手冊 · SHIS Local 1.2.58</span>
+      <span>離線操作手冊 · SHIS Local 1.2.64</span>
     </div>
     <div class="header-actions" aria-label="手冊工具">
       <button id="font-down" type="button" title="縮小文字" aria-label="縮小文字">A−</button>
@@ -41,6 +41,7 @@
         <a href="#admin">系統管理</a>
         <a href="#privacy">個資與安全</a>
         <a href="#developer">開發者與著作權</a>
+        <a href="#versions">版本更新紀錄</a>
         <a href="#troubleshooting">常見問題</a>
       </nav>
       <a class="install-guide-link" href="install/">安裝圖解教學</a>
@@ -53,8 +54,8 @@
         <h1>學生健康資訊系統操作手冊</h1>
         <p class="lead">依護理師實際工作順序整理，涵蓋學生查詢、傷病登錄、追蹤、報表、資料匯入、備份與系統更新。</p>
         <div class="hero-status">
-          <span>適用版本：1.2.58</span>
-          <span>更新日期：2026-08-29</span>
+          <span>適用版本：1.2.64</span>
+          <span>更新日期：2026-09-01</span>
           <span>圖片：已移除或遮蔽個資</span>
         </div>
         <p><a class="hero-guide-link" href="install/">第一次安裝？開啟完整安裝圖解教學</a></p>
@@ -252,8 +253,22 @@
         </div>
       </section>
 
+      <section class="manual-section" id="versions" data-keywords="版本 更新紀錄 1.2.59 1.2.60 1.2.61 1.2.62 1.2.63 1.2.64 新增 修正">
+        <div class="section-title"><span>11</span><div><p>Release Notes</p><h2>版本更新紀錄</h2></div></div>
+        <div class="feature-table" role="table" aria-label="版本更新內容">
+          <div class="feature-row header" role="row"><span>版本</span><span>加入或修改的功能</span><span>資料影響</span></div>
+          <div class="feature-row" role="row"><strong>1.2.64</strong><span>修正舊版本升級後清除資料無效；舊版清除網址與確認文字會安全導入新版完整流程。</span><span>清除前強制備份並驗證；保留學校、學期、帳號、設定、更新與稽核紀錄。</span></div>
+          <div class="feature-row" role="row"><strong>1.2.63</strong><span>工作台「連續受傷警示」可直接開啟學生個人傷病紀錄，並自動套用目前學生篩選。</span><span>不修改資料庫結構及既有傷病資料。</span></div>
+          <div class="feature-row" role="row"><strong>1.2.62</strong><span>感染關聯設定移至「傷病與追蹤」，護理師可維護相鄰教室、共用空間與共同活動班級。</span><span>保留既有感染關聯資料，不需重建。</span></div>
+          <div class="feature-row" role="row"><strong>1.2.61</strong><span>完善國小學制判斷：國小目前在學名冊限 1–6 年級，已畢業或七年級以上歷史班級不阻擋設定。</span><span>不變更歷史學生、健康及傷病資料。</span></div>
+          <div class="feature-row" role="row"><strong>1.2.60</strong><span>學校基本設定只保留學校資料；清除業務資料與感染關聯設定改為獨立功能。</span><span>既有設定及關聯完整保留。</span></div>
+          <div class="feature-row" role="row"><strong>1.2.59</strong><span>「清除業務資料並重新匯入」移至「系統管理 → 資料備份與還原」，僅管理員可操作。</span><span>執行前要求本人密碼、完整 PostgreSQL 備份及可讀性驗證。</span></div>
+        </div>
+        <div class="callout success"><strong>累積更新</strong><span>1.2.1 以上版本可直接套用最新的正式 .shisupdate，不必逐版安裝；套用前仍會驗證簽章、檔案雜湊並建立資料庫備份。</span></div>
+      </section>
+
       <section class="manual-section" id="troubleshooting" data-keywords="問題 無法 登入 空白 連線 更新 匯入 權限 防火牆">
-        <div class="section-title"><span>11</span><div><p>排除問題</p><h2>常見問題</h2></div></div>
+        <div class="section-title"><span>12</span><div><p>排除問題</p><h2>常見問題</h2></div></div>
         <details><summary>其他電腦無法連線</summary><p>確認主機服務已啟動、網址使用主機固定 IP 與 3000 連接埠，並檢查 Windows 防火牆允許校內子網路連入。</p></details>
         <details><summary>畫面顯示沒有權限</summary><p>確認目前登入帳號角色；護理師不應看到帳號管理、系統設定、備份還原或系統更新等管理功能。</p></details>
         <details><summary>匯入資料全部顯示錯誤</summary><p>先確認匯入學期、檔案格式與學生名冊是否一致。錯誤列不會寫入，可修正共同原因後重新檢核。</p></details>
@@ -263,7 +278,7 @@
 
       <section class="manual-section document-control" aria-label="文件資訊">
         <h2>文件資訊</h2>
-        <dl><div><dt>開發者</dt><dd>桃園市青溪國小 黃志豪</dd></div><div><dt>英文署名</dt><dd>Qingxi Elementary School - Gavin Huang</dd></div><div><dt>手冊版本</dt><dd>1.2.58</dd></div><div><dt>對應系統</dt><dd>SHIS Local 1.2.58</dd></div><div><dt>開發性質</dt><dd>功能概念延伸既有傷病系統；程式部分由開發者自行開發</dd></div><div><dt>發布用途</dt><dd>校內離線使用與協作平台操作說明</dd></div></dl>
+        <dl><div><dt>開發者</dt><dd>桃園市青溪國小 黃志豪</dd></div><div><dt>英文署名</dt><dd>Qingxi Elementary School - Gavin Huang</dd></div><div><dt>手冊版本</dt><dd>1.2.64</dd></div><div><dt>對應系統</dt><dd>SHIS Local 1.2.64</dd></div><div><dt>開發性質</dt><dd>功能概念延伸既有傷病系統；程式部分由開發者自行開發</dd></div><div><dt>發布用途</dt><dd>校內離線使用與協作平台操作說明</dd></div></dl>
       </section>
 
       <p id="no-results" class="no-results" hidden>找不到符合的章節，請更換搜尋文字。</p>
