@@ -14,7 +14,7 @@
     <div class="brand-mark" aria-hidden="true">護</div>
     <div class="brand-copy">
       <strong>學生健康資訊系統</strong>
-      <span>離線操作手冊 · SHIS Local 1.2.68</span>
+      <span>離線操作手冊 · SHIS Local 1.2.69</span>
     </div>
     <div class="header-actions" aria-label="手冊工具">
       <button id="font-down" type="button" title="縮小文字" aria-label="縮小文字">A−</button>
@@ -54,7 +54,7 @@
         <h1>學生健康資訊系統操作手冊</h1>
         <p class="lead">依護理師實際工作順序整理，涵蓋學生查詢、傷病登錄、追蹤、報表、資料匯入、備份與系統更新。</p>
         <div class="hero-status">
-          <span>適用版本：1.2.68</span>
+          <span>適用版本：1.2.69</span>
           <span>更新日期：2026-09-03</span>
           <span>圖片：已移除或遮蔽個資</span>
         </div>
@@ -255,10 +255,11 @@
         </div>
       </section>
 
-      <section class="manual-section" id="versions" data-keywords="版本 更新紀錄 1.2.59 1.2.60 1.2.61 1.2.62 1.2.63 1.2.64 1.2.65 1.2.66 1.2.67 1.2.68 新增 修正">
+      <section class="manual-section" id="versions" data-keywords="版本 更新紀錄 1.2.59 1.2.60 1.2.61 1.2.62 1.2.63 1.2.64 1.2.65 1.2.66 1.2.67 1.2.68 1.2.69 新增 修正 資安">
         <div class="section-title"><span>11</span><div><p>Release Notes</p><h2>版本更新紀錄</h2></div></div>
         <div class="feature-table" role="table" aria-label="版本更新內容">
           <div class="feature-row header" role="row"><span>版本</span><span>加入或修改的功能</span><span>資料影響</span></div>
+          <div class="feature-row" role="row"><strong>1.2.69</strong><span>更新 Fastify、fast-uri 與 nanoid 正式相依套件，修補輸入驗證、網址處理及資源耗盡弱點。</span><span>正式相依套件稽核為 0 個已知弱點；不變更資料庫與備份格式。</span></div>
           <div class="feature-row" role="row"><strong>1.2.68</strong><span>修正傳染病通報清單讀取與新增通報時使用錯誤的學生、學期及在學狀態欄位。</span><span>不修改既有學生或傷病資料；恢復流感、腸病毒通報正常運作。</span></div>
           <div class="feature-row" role="row"><strong>1.2.67</strong><span>傷病登錄左側固定學生完整摘要；新增全部班級下拉選擇、發生地點管理，以及獨立的流感與腸病毒通報。</span><span>健康中心退出新紀錄地點選單；歷史資料保留。傳染病通報納入備份與清除測試資料。</span></div>
           <div class="feature-row" role="row"><strong>1.2.66</strong><span>啟用同源 Content Security Policy，限制外部程式、物件、框架及瀏覽器權限；縮減免登入健康與初始化端點資訊。</span><span>降低跨站內容注入與系統指紋辨識風險，不影響校內正常操作。</span></div>
@@ -285,7 +286,7 @@
 
       <section class="manual-section document-control" aria-label="文件資訊">
         <h2>文件資訊</h2>
-        <dl><div><dt>開發者</dt><dd>桃園市青溪國小 黃志豪</dd></div><div><dt>英文署名</dt><dd>Qingxi Elementary School - Gavin Huang</dd></div><div><dt>手冊版本</dt><dd>1.2.68</dd></div><div><dt>對應系統</dt><dd>SHIS Local 1.2.68</dd></div><div><dt>開發性質</dt><dd>功能概念延伸既有傷病系統；程式部分由開發者自行開發</dd></div><div><dt>發布用途</dt><dd>校內離線使用與協作平台操作說明</dd></div></dl>
+        <dl><div><dt>開發者</dt><dd>桃園市青溪國小 黃志豪</dd></div><div><dt>英文署名</dt><dd>Qingxi Elementary School - Gavin Huang</dd></div><div><dt>手冊版本</dt><dd>1.2.69</dd></div><div><dt>對應系統</dt><dd>SHIS Local 1.2.69</dd></div><div><dt>開發性質</dt><dd>功能概念延伸既有傷病系統；程式部分由開發者自行開發</dd></div><div><dt>發布用途</dt><dd>校內離線使用與協作平台操作說明</dd></div></dl>
       </section>
 
       <p id="no-results" class="no-results" hidden>找不到符合的章節，請更換搜尋文字。</p>
